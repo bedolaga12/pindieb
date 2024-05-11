@@ -4,6 +4,7 @@ const fs = require('fs').promises;
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const gamesRouter = require('./routes/games')
 
 const app = express();
 
@@ -11,14 +12,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/games', (req, res) => {
-  res.send([]);
-});
-
-app.post('/games', (req, res) => {
-  console.log(req.body);
-  res.send([]);
-});
+app.use(gamesRouter);
 
 app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
