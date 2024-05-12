@@ -4,6 +4,7 @@ const fs = require('fs').promises;
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+console.log(123);
 const gamesRouter = require('./routes/games');
 const { cors } = require('./middlewares/cors');
 
